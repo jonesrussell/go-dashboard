@@ -1,5 +1,5 @@
 {
-	"name": "Go & Redis",
+	"name": "Go Dashboard",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
