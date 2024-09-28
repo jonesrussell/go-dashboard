@@ -1,0 +1,33 @@
+{
+	"name": "Go & Redis",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/guiyomh/features/golangci-lint:0": {},
+		"ghcr.io/guiyomh/features/gomarkdoc:0": {},
+		"ghcr.io/guiyomh/features/goreleaser:0": {},
+		"ghcr.io/guiyomh/features/gotestsum:0": {},
+		"ghcr.io/devcontainers-contrib/features/elasticsearch-asdf:2": {},
+		"ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
+		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"phind.phind",
+				"GitHub.vscode-pull-request-github",
+				"nhoizey.gremlins",
+				"task.vscode-task",
+				"premparihar.gotestexplorer",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssl,target=/ssl,type=bind"
+	],
+	"forwardPorts": [
+		6379
+	]
+}
