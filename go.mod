@@ -2,7 +2,10 @@ module github.com/jonesrussell/go-dashboard
 
 go 1.23.1
 
-require github.com/rivo/tview v0.0.0-20240921122403-a64fc48d7654
+require (
+	github.com/mattn/go-sqlite3 v1.14.23
+	github.com/rivo/tview v0.0.0-20240921122403-a64fc48d7654
+)
 
 require (
 	github.com/gdamore/encoding v1.0.1 // indirect
