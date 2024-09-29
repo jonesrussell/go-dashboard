@@ -1,17 +1,21 @@
 package main
 
 import (
-	"os"
-	"path/filepath"
-
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
+	"os"
+	"path/filepath"
 )
 
-// Show a navigable tree view of the current directory.
+// Show a navigable tree view of the projects under ~/Development.
 func main() {
-	rootDir := "."
-	root := tview.NewTreeNode(rootDir).
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		panic(err)
+	}
+	devDir := filepath.Join(homeDir, "Development")
+
+	root := tview.NewTreeNode(devDir).
 		SetColor(tcell.ColorRed)
 	tree := tview.NewTreeView().
 		SetRoot(root).
@@ -35,8 +39,8 @@ func main() {
 		}
 	}
 
-	// Add the current directory to the root node.
-	add(root, rootDir)
+	// Add the projects under ~/Development to the root node.
+	add(root, devDir)
 
 	// If a directory was selected, open it.
 	tree.SetSelectedFunc(func(node *tview.TreeNode) {
